@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>NammaOoru AI — Local problems, collective solutions</title>
+<link rel="stylesheet" href="styles.css">
+<script src="https://upload-widget.cloudinary.com/global/all.js" type="text/javascript"></script>
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#"><span class="brand-mark">ந</span><span>NammaOoru <small>AI</small></span></a>
+  <nav><a href="#how">How it works</a><a href="#reports">Community reports</a><button id="langToggle" class="btn btn-quiet">தமிழ் / EN</button></nav>
+</header>
+<main>
+<section class="hero">
+  <div class="hero-copy">
+    <span class="eyebrow" data-i18n="eyebrow">CIVIC ACTION, MADE SIMPLE</span>
+    <h1 data-i18n="heroTitle">Your street.<br><em>Your voice.</em><br>Your NammaOoru.</h1>
+    <p data-i18n="heroText">Report local problems with evidence, help neighbours see what needs attention, and track every issue from report to resolution.</p>
+    <div class="hero-actions"><a class="btn btn-primary" href="#report" data-i18n="reportBtn">＋ Report an issue</a><a class="btn btn-outline" href="#reports" data-i18n="exploreBtn">Explore community reports ↓</a></div>
+    <div class="trust-row"><span>● Photo evidence</span><span>● Transparent status</span><span>● Community-first</span></div>
+  </div>
+  <div class="hero-art">
+    <div class="art-sun"></div><div class="art-road"></div><div class="art-house house-a"><i></i></div><div class="art-house house-b"><i></i></div>
+    <div class="art-tree tree-a"></div><div class="art-tree tree-b"></div><div class="art-pin"><span>!</span></div>
+    <div class="floating-card"><span class="live-dot"></span><div><b>Streetlight reported</b><small>Ward 12 · Community verified</small></div><span class="status-pill">Open</span></div>
+  </div>
+</section>
+<section class="stats">
+  <div><strong id="statTotal">03</strong><span>Demo reports</span></div><div><strong>3</strong><span>Simple steps</span></div><div><strong>2</strong><span>Languages planned</span></div><div><strong>1</strong><span>Shared neighbourhood</span></div>
+</section>
+<section class="section" id="how">
+  <div class="section-heading"><div><span class="eyebrow">FROM ISSUE TO ACTION</span><h2>Small reports can spark<br>real local change.</h2></div><p>One shared view makes it easier for residents to spot repeat problems, support each other and follow progress.</p></div>
+  <div class="steps"><article><span class="step-no">01</span><div class="step-icon">📷</div><h3>Capture</h3><p>Add a clear photo, choose a category and describe the issue in your own words.</p></article><article><span class="step-no">02</span><div class="step-icon">📍</div><h3>Locate</h3><p>Share a landmark or area so neighbours can understand where help is needed.</p></article><article><span class="step-no">03</span><div class="step-icon">🤝</div><h3>Follow through</h3><p>Track the status and add support to reports that matter to your community.</p></article></div>
+</section>
+<section class="report-layout section" id="report">
+  <div class="form-intro"><span class="eyebrow">MAKE IT VISIBLE</span><h2>What needs<br>attention nearby?</h2><p>Start with one issue. A useful report is specific, respectful and safe.</p>
+    <div class="privacy-note"><span>🛡️</span><div><b>Privacy by design</b><p>Don't include faces, private documents or personal phone numbers in photos. This prototype stores reports only in this browser.</p></div></div>
+  </div>
+  <form id="reportForm" class="report-form">
+    <label for="issueTitle">Short title <span>*</span></label><input id="issueTitle" required maxlength="80" placeholder="e.g. Water leaking near bus stop">
+    <div class="form-row"><div><label for="category">Category <span>*</span></label><select id="category" required><option value="">Choose category</option><option>Road / pothole</option><option>Garbage / cleanliness</option><option>Water leak</option><option>Streetlight</option><option>Drainage / flooding</option><option>Public safety</option><option>Other</option></select></div><div><label for="area">Area / landmark <span>*</span></label><input id="area" required maxlength="100" placeholder="e.g. near library gate"></div></div>
+    <label for="description">What happened? <span>*</span></label><textarea id="description" required maxlength="500" rows="3" placeholder="Describe what you observed and why it matters."></textarea>
+    <label>Photo evidence <small>(optional)</small></label><div class="upload-row"><button type="button" id="uploadBtn" class="btn btn-outline">＋ Add photo</button><span id="uploadStatus">No photo added</span></div><input type="hidden" id="photoUrl">
+    <div class="form-row"><div><label for="reporter">Display name <small>(optional)</small></label><input id="reporter" maxlength="40" placeholder="Neighbour"></div><div><label for="urgency">Priority</label><select id="urgency"><option>Normal</option><option>Urgent</option></select></div></div>
+    <button class="btn btn-primary submit-btn" type="submit">Publish community report ↗</button>
+    <p class="form-footnote">Demo prototype · no government affiliation · do not use for emergencies.</p>
+  </form>
+</section>
+<section class="section reports-section" id="reports">
+  <div class="section-heading"><div><span class="eyebrow">YOUR COMMUNITY AT A GLANCE</span><h2>Reports that need<br>eyes and action.</h2></div><div class="filters"><select id="filterCategory" aria-label="Filter by category"><option value="All">All categories</option><option>Road / pothole</option><option>Garbage / cleanliness</option><option>Water leak</option><option>Streetlight</option><option>Drainage / flooding</option><option>Public safety</option><option>Other</option></select><select id="filterStatus" aria-label="Filter by status"><option value="All">All statuses</option><option>Open</option><option>In progress</option><option>Resolved</option></select></div></div>
+  <div id="reportGrid" class="report-grid"></div>
+  <div id="emptyState" class="empty-state" hidden><span>🌱</span><h3>No reports match that filter</h3><p>Try another filter or be the first to report an issue.</p></div>
+</section>
+<section class="cta"><div><span class="eyebrow">BUILT FOR THE NEIGHBOURHOOD</span><h2>Better places begin<br>with people who care.</h2></div><a class="btn btn-light" href="#report">Add your first report ↗</a></section>
+</main>
+<footer><a class="brand" href="#"><span class="brand-mark">ந</span><span>NammaOoru <small>AI</small></span></a><p>A student-built civic-tech prototype for safer, cleaner, more responsive neighbourhoods.</p><span>Hacktober HackDays · Tech for Social Good · 2026</span></footer>
+<div id="toast" role="status" aria-live="polite"></div>
+<script src="app.js"></script>
+</body></html>
